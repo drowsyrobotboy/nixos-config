@@ -29,6 +29,11 @@
       inherit system pkgs;
       specialArgs = { inherit inputs pkgs; };
 
+      config = {
+        # Defining here instead of configuration.nix
+        nixpkgs.config.allowUnfree = true;
+      };
+
       modules = [
         # Import your hardware configuration file
         ./hardware-configuration.nix
