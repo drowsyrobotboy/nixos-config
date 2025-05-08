@@ -10,10 +10,14 @@
       <home-manager/nixos>
     ];
 
-  # Bootloader.
+  # Bootloader for NVME Hosts
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Bootloader for SATA Hosts
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/sda";
+  # boor.loader.grub.useOSProber = true;
 
   # Enable networking
   networking.hostName = "robotboy-code";
