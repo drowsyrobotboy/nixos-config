@@ -61,8 +61,8 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
   
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Allow unfree packages. this is being handled in flake.nix
+  # nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
