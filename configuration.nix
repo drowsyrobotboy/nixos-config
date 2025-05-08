@@ -17,7 +17,7 @@
   # Bootloader for SATA Hosts
   # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/sda";
-  # boor.loader.grub.useOSProber = true;
+  # boot.loader.grub.useOSProber = true;
 
   # Enable networking
   networking.hostName = "robotboy-code";
