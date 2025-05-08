@@ -7,7 +7,6 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
   # Bootloader for NVME Hosts
@@ -41,14 +40,14 @@
   };
 
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  services.xserver.xkb.layout = "us";
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure console keymap
   console.keyMap = "us";
@@ -62,17 +61,6 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
   
-  # Home Manager setup
-
-  # Now that the module is imported via <home-manager/nixos>, these options will be recognized:
-  home-manager = {
-    useGlobalPkgs = true;  # Use the same nixpkgs definition as NixOS
-    useUserPackages = true; # Allow Home Manager to manage packages installed via nix-env (optional)
-
-    # Configure Home Manager for your user
-    users.maruthi = import ./home.nix; # This imports your /etc/nixos/home.nix
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -87,9 +75,10 @@
     rustc
     cargo
     go
-    #vscode
+    vscode
     #ghostty
-    #gnome.gnome-tweaks
+    gnome-tweaks
+    gnomeExtensions.dash-to-panel
   ];
   
   # Install Firefox
