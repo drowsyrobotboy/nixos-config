@@ -21,18 +21,19 @@
     # Define the system architecture. One needs to be commented
     # system = "x86_64-linux";
     system = "aarch64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs.outPath {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
+
   in
   {
     # Define the configuration for your host, matching networking.hostName
     nixosConfigurations."robotboy-code" = nixpkgs.lib.nixosSystem {
       inherit system pkgs;
       specialArgs = { inherit inputs pkgs; };
-
-      config = {
-        # Defining here instead of configuration.nix
-        nixpkgs.config.allowUnfree = true;
-      };
 
       modules = [
         # Import your hardware configuration file
@@ -44,7 +45,7 @@
 
         # Import your main configuration.nix file.
         ./configuration.nix
-
+	
         # Configure Home Manager for your user(s) here instead of configuration.nix.
         {
           home-manager = {
