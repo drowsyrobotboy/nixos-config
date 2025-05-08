@@ -92,6 +92,9 @@
     #gnome.gnome-tweaks
   ];
   
+  # Install Firefox
+  programs.firefox.enable = true;
+
   # Allows VSCode server to be installed from Host. THis allows Remote SSH from VSCode
   programs.nix-ld.enable = true;
   
