@@ -87,7 +87,10 @@
     #ghostty
     #gnome.gnome-tweaks
   ];
-
+  
+  # Allows VSCode server to be installed from Host. THis allows Remote SSH from VSCode
+  programs.nix-ld.enable = true;
+  
   # Enable SSH daemon.
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no"; # Recommended for security
