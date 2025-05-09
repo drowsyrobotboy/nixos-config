@@ -46,8 +46,23 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
+  # Enable i3 window manager. Make sure you include packages that are related to i3
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.windowManager.i3.enable = true;
+
+  # DPI for 200% zoom on retina display. 2 x 96
+  services.xserver.dpi = 192;
+  environment.variables = {
+    GDK_SCALE = "1"; # For GTK3/4 applications. This was initalliy 2 but VSCode was extra zoomed
+    GDK_DPI_SCALE = "1"; # Works in conjunction with GDK_SCALE to keep fonts well-proportioned. Change to 0.5 if GDK_SCALE is 2
+    QT_AUTO_SCREEN_SCALE_FACTOR = "0"; # Disable Qt's automatic scaling
+    QT_SCALE_FACTOR = "2";           # For Qt5/6 applications
+    # QT_FONT_DPI = "96"; # Usually not needed if QT_SCALE_FACTOR is set, but can be used for fine-tuning
+    XCURSOR_SIZE = "48"; # Scale cursor size (24 * 2)
+  };
 
   # Configure console keymap
   console.keyMap = "us";
@@ -61,8 +76,8 @@
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
   
-  # Allow unfree packages. this is being handled in flake.nix
-  # nixpkgs.config.allowUnfree = true;
+  # Allow unfree packages
+  #  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -77,8 +92,13 @@
     go
     vscode
     #ghostty
-    gnome-tweaks
-    gnomeExtensions.dash-to-panel
+    #gnome-tweaks
+    #gnomeExtensions.dash-to-panel
+    i3status
+    i3lock
+    rofi
+    #dmenu --not needed if rofi
+    feh
   ];
   
   # Install Firefox
