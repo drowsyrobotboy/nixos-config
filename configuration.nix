@@ -64,6 +64,9 @@
     XCURSOR_SIZE = "48"; # Scale cursor size (24 * 2)
   };
 
+  # For VMs on lower resolution, make sure autorandr is enabled so that correct resolution is being picked
+  services.autorandr.enable = true;
+
   # Configure console keymap
   console.keyMap = "us";
 
