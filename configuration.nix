@@ -94,7 +94,7 @@
     cargo
     go
     vscode
-    #ghostty
+    ghostty
     #gnome-tweaks
     #gnomeExtensions.dash-to-panel
     i3status
@@ -102,6 +102,7 @@
     rofi
     #dmenu --not needed if rofi
     feh
+    nemo
   ];
   
   # Install Firefox
