@@ -19,8 +19,8 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     # Define the system architecture. One needs to be commented
-    # system = "x86_64-linux";
-    system = "aarch64-linux";
+    system = "x86_64-linux";
+    # system = "aarch64-linux";
     pkgs = import nixpkgs.outPath {
       inherit system;
       config = {
@@ -52,6 +52,7 @@
              useGlobalPkgs = true;
              useUserPackages = true;
              users.maruthi = import ./home.nix;
+             backupFileExtension = "backup";
           };
         }
       ];
