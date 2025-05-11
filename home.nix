@@ -14,4 +14,6 @@
         ${pkgs.git}/bin/git clone https://github.com/drowsyrobotboy/sinma.git "$HOME/Projects/sinma"
       fi
     '';
+    # 2x scaling for apps like terminal / alacritty. This needs to be invoked from configuration.nix
+    home.file.".Xresources".text = "Xft.dpi: 192\n";
 }
