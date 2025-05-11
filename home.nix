@@ -16,4 +16,10 @@
     '';
     # 2x scaling for apps like terminal / alacritty. This needs to be invoked from configuration.nix
     home.file.".Xresources".text = "Xft.dpi: 192\n";
+
+    # Alacritty Font Size
+    home.file.".config/alacritty/alacritty.toml".text = ''
+        [font]
+          size = 14.0
+        '';
 }
