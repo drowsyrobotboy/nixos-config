@@ -15,7 +15,7 @@
     #  fi
     #'';
 
-    # 2x scaling for terminal / alacritty. This needs to be invoked from configuration.nix
+    # Scaling for terminal / alacritty. This needs to be invoked from configuration.nix
     home.file.".Xresources".text = "Xft.dpi: 192\n";
     
     # This sets the default font size for alacritty terminal
@@ -77,7 +77,7 @@
     tiling_drag modifier titlebar
 
     # start a terminal
-    bindsym $mod+Return exec ghostty
+    bindsym $mod+Return exec alacritty
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -217,7 +217,7 @@
     bindsym $mod+Shift+v exec code --force-device-scale-factor=2.5
 
     # Adding custom wallpaper
-    exec --no-startup-id sh -c 'wget -O /tmp/blue.jpg https://raw.githubusercontent.com/drowsyrobotboy/nixos-config/refs/heads/main/walls/blue.jpg && feh --bg-scale /tmp/blue.jpg'
+    exec --no-startup-id sh -c 'wget -O /tmp/vlack.jpg https://raw.githubusercontent.com/drowsyrobotboy/nixos-config/refs/heads/main/walls/vlack.jpg && feh --bg-fill /tmp/vlack.jpg'
   
     # Start i3bar to display a workspace bar (plus the system information i3status
     # finds out, if available)
