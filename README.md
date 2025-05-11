@@ -16,6 +16,11 @@ My NixOS configuration to generate a standard developer VM
 - `sudo nixos-rebuild switch`
 - `reboot`
 
+## Second Login
+- Once the VM boots, connect using ssh
+- Paste the `flake.nix`, `configurations.nix` and `home.nix` in the VM
+- Then run rebuild with flake
+
 # Running rebuild using flake
 
 ```bash
