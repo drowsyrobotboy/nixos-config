@@ -64,6 +64,11 @@
     XCURSOR_SIZE = "48"; # Scale cursor size (24 * 2)
   };
 
+  # Similar setting for i3 apps lice terminal and alacritty
+  services.xserver.displayManager.sessionCommands = ''
+    xrdb -merge ~/.Xresources
+  '';
+
   # For VMs on lower resolution, make sure autorandr is enabled so that correct resolution is being picked
   services.autorandr.enable = true;
 
@@ -94,7 +99,7 @@
     cargo
     go
     vscode
-    ghostty
+    #ghostty
     #gnome-tweaks
     #gnomeExtensions.dash-to-panel
     i3status
@@ -107,6 +112,7 @@
     python3
     uv
     google-chrome
+    alacritty
   ];
   
   # Install Firefox
