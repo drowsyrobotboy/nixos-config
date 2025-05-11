@@ -103,6 +103,10 @@
     #dmenu --not needed if rofi
     feh
     nemo
+    jdk11
+    python3
+    uv
+    google-chrome
   ];
   
   # Install Firefox
