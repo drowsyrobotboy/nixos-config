@@ -111,8 +111,12 @@
     jdk11
     python3
     uv
+    # google-chrome only works on x64
     google-chrome
+    # chromium works on arm
+    chromium
     alacritty
+    tailscale
   ];
   
   # Install Firefox
