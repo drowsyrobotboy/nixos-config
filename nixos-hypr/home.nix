@@ -10,7 +10,7 @@
     wofi
     waybar
     vscode
-    (nerd-fonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
     wl-clipboard
     grim
     slurp
@@ -28,22 +28,32 @@
   # Declarative dotfiles using Home Manager
   # Hyprland Configuration
   xdg.configFile."hypr/hyprland.conf".text = ''
-    monitor=,preferred,auto,2
+    monitor=,preferred,auto,1
     exec-once = waybar & alacritty
     env = XCURSOR_SIZE,48
-    input { kb_layout = us; follow_mouse = 1; }
-    general {
-        gaps_in = 5; gaps_out = 10; border_size = 2;
-        col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg;
-        col.inactive_border = rgba(595959aa);
-        layout = dwindle;
+    input {
+        kb_layout = us;
     }
-    decoration { rounding = 5; }
-    animations { enabled = yes; }
+    env = XKB_DEFAULT_LAYOUT,us
+    general {
+        gaps_in = 5
+        gaps_out = 10
+        border_size = 2
+        col.active_border = 0x33ccffee
+        col.inactive_border = 0x595959aa
+        layout = dwindle
+    }
 
+    decoration {
+        rounding = 5
+    }
+
+    animations {
+        enabled = true
+    }
     # == Keybinds ==
     # Using Left Alt as the main modifier key
-    $mainMod = ALT
+    $mainMod = mod1
     bind = $mainMod, RETURN, exec, alacritty
     bind = $mainMod, Q, killactive,
     bind = $mainMod, M, exit,
@@ -87,11 +97,6 @@
     #workspaces button.focused { background-color: #64727D; }
     #clock, #pulseaudio, #network, #tray, #window { padding: 0 10px; color: #ffffff; }
   '';
-
-  # Set DPI for older X11 applications
-  xresources = {
-    "Xft.dpi" = 192;
-  };
 
   # Let Home Manager manage its own state
   home.stateVersion = "25.05";
