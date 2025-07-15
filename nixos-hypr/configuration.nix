@@ -61,6 +61,7 @@
     wget
     curl
     git
+    xkeyboard_config
   ];
 
   # List services that you want to enable:
@@ -70,10 +71,10 @@
 
   # Essential system-wide services
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.pipewire.enable = true;
   security.rtkit.enable = true;
   services.pipewire.pulse.enable = true;
-  sound.enable = true;
 
   # Enable Hyprland session for the display manager
   programs.hyprland.enable = true;
